@@ -1,0 +1,17 @@
+# Python & Virtual Env
+__pycache__/
+*.pyc
+.venv/
+env/
+venv/
+
+# LightRAG Local Store
+agnostic_cps_store/
+*.db
+*.sqlite
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
