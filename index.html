@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CPS & Systems Thinking Mental Gym — Modelos Mentales</title>
+  <title>CPS vs. Sparring Socrático — Mental Gym</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,195 +22,184 @@
     * { box-sizing: border-box; }
     body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Outfit', sans-serif; margin: 0; padding: 24px; min-height: 100vh; }
     .container { max-width: 1200px; margin: 0 auto; }
-    header { border-bottom: 1px solid #1e293b; padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-    .brand { font-family: 'JetBrains Mono', monospace; font-size: 1.3rem; font-weight: 800; color: var(--accent-purple); letter-spacing: 0.5px; }
-    .badge { background: #1e1b4b; color: #818cf8; font-size: 0.75rem; padding: 6px 12px; border-radius: 8px; font-weight: 700; border: 1px solid #4338ca; font-family: 'JetBrains Mono', monospace; }
+    header { border-bottom: 1px solid #1e293b; padding-bottom: 20px; margin-bottom: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .brand { font-family: 'JetBrains Mono', monospace; font-size: 1.25rem; font-weight: 800; color: var(--accent-purple); }
+    .badge { background: #1e1b4b; color: #818cf8; font-size: 0.75rem; padding: 5px 12px; border-radius: 8px; font-weight: 700; border: 1px solid #4338ca; font-family: 'JetBrains Mono', monospace; }
+    
+    /* Comparison Matrix Banner */
+    .matrix-banner { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 36px; }
+    .matrix-card { background: rgba(15, 23, 42, 0.9); border: 2px solid #334155; border-radius: 16px; padding: 22px; backdrop-filter: blur(8px); }
+    .matrix-card.cps { border-color: #6366f1; background: linear-gradient(180deg, rgba(99, 102, 241, 0.08) 0%, rgba(15, 23, 42, 0.9) 100%); }
+    .matrix-card.socratic { border-color: #38bdf8; background: linear-gradient(180deg, rgba(56, 189, 248, 0.08) 0%, rgba(15, 23, 42, 0.9) 100%); }
+    
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-bottom: 36px; }
-    .card { background: rgba(15, 23, 42, 0.8); border: 1px solid var(--card-border); border-radius: 16px; padding: 22px; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(8px); }
-    .card:hover { border-color: var(--accent-purple); transform: translateY(-4px); box-shadow: 0 12px 24px -10px rgba(99, 102, 241, 0.25); }
+    .card { background: rgba(15, 23, 42, 0.8); border: 1px solid var(--card-border); border-radius: 16px; padding: 22px; transition: all 0.25s ease; }
+    .card:hover { border-color: var(--accent-purple); transform: translateY(-3px); }
     .card-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; font-weight: 800; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
-    .card-title { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin-bottom: 10px; }
-    .socratic-box { background: #0b0f19; border: 1px solid #334155; border-left: 4px solid var(--accent-purple); padding: 20px; border-radius: 12px; margin-top: 18px; }
+    .card-title { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin-bottom: 8px; }
+    
     select, button, input, textarea { background: #0f172a; border: 1px solid #334155; color: #fff; padding: 12px 16px; border-radius: 10px; font-family: 'Outfit', sans-serif; font-size: 0.95rem; width: 100%; }
-    select:focus, input:focus, textarea:focus { border-color: var(--accent-cyan); outline: none; box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2); }
-    button { background: linear-gradient(135deg, #6366f1, #4f46e5); border: none; font-weight: 700; cursor: pointer; transition: all 0.2s ease; color: #fff; }
-    button:hover { background: linear-gradient(135deg, #4f46e5, #4338ca); transform: translateY(-1px); }
+    button { background: linear-gradient(135deg, #6366f1, #4f46e5); border: none; font-weight: 700; cursor: pointer; color: #fff; }
+    button:hover { background: linear-gradient(135deg, #4f46e5, #4338ca); }
     footer { border-top: 1px solid #1e293b; padding-top: 24px; margin-top: 50px; font-size: 0.85rem; color: var(--text-muted); text-align: center; }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <div class="brand">🧠 CPS & SYSTEMS THINKING MENTAL GYM</div>
+      <div class="brand">🧠 MENTAL GYM: CPS vs. SPARRING SOCRÁTICO</div>
       <div style="display:flex; gap:10px;">
-        <span class="badge">SISTEMICO • CYNEFIN • UNTOOLS</span>
+        <span class="badge">ESTRATEGIA vs. TÁCTICA</span>
         <span class="badge" style="background:#064e3b; color:#34d399; border-color:#059669;">DESPLEGADO EN GIT</span>
       </div>
     </header>
 
     <main>
-      <div style="margin-bottom: 36px;">
-        <h1 style="font-size: 2.1rem; font-weight: 800; margin-bottom: 8px; background: linear-gradient(90deg, #f8fafc, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-          Gimnasio de Pensamiento Sistémico & Modelos Mentales
+      <!-- Title -->
+      <div style="margin-bottom: 28px;">
+        <h1 style="font-size: 2.0rem; font-weight: 800; margin-bottom: 8px; color: #f8fafc;">
+          Distinción Metodológica: CPS vs. Sparring Socrático
         </h1>
-        <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 850px; line-height: 1.6;">
-          Entorno interactivo agnóstico para desarmar problemas complejos, ejercitar la toma de decisiones socrática y mapear dinámicas de sistemas (Untools.co & Cynefin).
+        <p style="color: var(--text-muted); font-size: 1.0rem; max-width: 850px; line-height: 1.5;">
+          Aunque conviven en el mismo flujo, <strong>CPS es la Estrategia Sistémica</strong> (mapeo del problema y atractores) y el <strong>Sparring Socrático es la Táctica de Diálogo</strong> (preguntas verbales incisivas).
         </p>
       </div>
 
-      <!-- Grid 6 Untools Cards -->
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-        <h2 style="font-family: 'JetBrains Mono', monospace; font-size: 1.15rem; color: var(--accent-green); margin:0;">
-          🛠️ 1. Galería de Modelos Mentales (Untools.co)
-        </h2>
-        <span style="font-size:0.8rem; color:var(--text-muted);">Haz clic en cualquier tarjeta para ver su heurística</span>
+      <!-- VISUAL COMPARISON BANNER EXPLANATION -->
+      <div class="matrix-banner">
+        
+        <!-- CPS Card -->
+        <div class="matrix-card cps">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; font-weight:800; color:#818cf8; background:#1e1b4b; padding:4px 10px; border-radius:6px;">
+              🧩 1. CPS (COMPLEX PROBLEM SOLVING)
+            </span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:#94a3b8; font-weight:700;">NIVEL: ESTRATEGIA (EL MAPA)</span>
+          </div>
+          <h3 style="font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:8px;">¿Qué pasa en el sistema?</h3>
+          <p style="font-size:0.88rem; color:#cbd5e1; line-height:1.5; margin-bottom:14px;">
+            Diagnostica dinámicas no lineales, clasifica el entorno en Cynefin, identifica <strong>atractores cognitivos</strong> (miedo a auditorías CNBV, autoprotección de TI) y calcula el Costo Diario de Ineficiencia (CDI).
+          </p>
+          <ul style="font-size:0.82rem; color:#94a3b8; padding-left:18px; margin:0; line-height:1.6;">
+            <li><strong>Entrada:</strong> Datos del entorno, reglas de aceleración (`RULE_01`).</li>
+            <li><strong>Resultado:</strong> Diagnóstico del atractor y estado de complejidad.</li>
+          </ul>
+        </div>
+
+        <!-- Socratic Card -->
+        <div class="matrix-card socratic">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; font-weight:800; color:#38bdf8; background:#0c4a6e; padding:4px 10px; border-radius:6px;">
+              🎙️ 2. SPARRING SOCRÁTICO (MAYÉUTICA)
+            </span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:#94a3b8; font-weight:700;">NIVEL: TÁCTICA (EL GOLPE)</span>
+          </div>
+          <h3 style="font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:8px;">¿Cómo pregunto sin atacar?</h3>
+          <p style="font-size:0.88rem; color:#cbd5e1; line-height:1.5; margin-bottom:14px;">
+            Ejecuta la conversación verbal en vivo. Cuestiona supuestos implícitos mediante preguntas incisivas para que el interlocutor <strong>descubra la fricción por sí mismo</strong>.
+          </p>
+          <ul style="font-size:0.82rem; color:#94a3b8; padding-left:18px; margin:0; line-height:1.6;">
+            <li><strong>Entrada:</strong> Diagnóstico previo de CPS.</li>
+            <li><strong>Resultado:</strong> Frase socrática de 1 línea para la llamada en vivo.</li>
+          </ul>
+        </div>
+
       </div>
 
-      <div class="grid">
-        <!-- Card 1: Iceberg -->
-        <div class="card">
-          <span class="card-tag" style="background:#0c4a6e; color:#38bdf8;">SYSTEMS THINKING</span>
-          <div class="card-title">🧊 El Modelo del Iceberg</div>
-          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">
-            Observa más allá de los eventos superficiales. Desciende a los patrones históricos, las estructuras de retroalimentación y los modelos mentales raíz.
-          </p>
-        </div>
-
-        <!-- Card 2: Inversion -->
-        <div class="card">
-          <span class="card-tag" style="background:#451a03; color:#f59e0b;">DECISION MAKING</span>
-          <div class="card-title">🔄 Inversion Thinking</div>
-          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">
-            En lugar de buscar cómo ganar, define con exactitud cómo garantizar el fracaso catastrófico y elimina esas conductas de inmediato.
-          </p>
-        </div>
-
-        <!-- Card 3: First Principles -->
-        <div class="card">
-          <span class="card-tag" style="background:#1e1b4b; color:#818cf8;">PROBLEM SOLVING</span>
-          <div class="card-title">🧱 First Principles</div>
-          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">
-            Descompón dilemas complejos en sus axiomas básicos e innegables. Construye la solución desde cero sin razonar por analogía.
-          </p>
-        </div>
-
-        <!-- Card 4: Second-Order -->
-        <div class="card">
-          <span class="card-tag" style="background:#064e3b; color:#34d399;">SYSTEMS THINKING</span>
-          <div class="card-title">⚖️ Second-Order Thinking</div>
-          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">
-            Pregúntate siempre: <i>"¿Y luego qué?"</i>. Evalúa las consecuencias colaterales de las consecuencias a 6, 12 y 36 meses plazo.
-          </p>
-        </div>
-
-        <!-- Card 5: Cynefin -->
-        <div class="card">
-          <span class="card-tag" style="background:#311042; color:#c084fc;">COMPLEXITY SCIENCE</span>
-          <div class="card-title">🧩 Framework Cynefin</div>
-          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">
-            Clasifica la dinámica del entorno en Claro, Complicado, Complejo o Caótico antes de elegir si actuar, analizar o probar (Probe).
-          </p>
-        </div>
-
-        <!-- Card 6: Ladder of Inference -->
-        <div class="card">
-          <span class="card-tag" style="background:#134e4a; color:#2dd4bf;">COGNITIVE BIAS</span>
-          <div class="card-title">🪜 Escala de la Inferencia</div>
-          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">
-            Identifica cómo pasas de los datos reales a la selección de datos, supuestos, conclusiones y creencias automáticas no cuestionadas.
-          </p>
-        </div>
-      </div>
-
-      <!-- Interactive Cynefin & Socratic Simulator -->
-      <h2 style="font-family: 'JetBrains Mono', monospace; font-size: 1.15rem; color: var(--accent-cyan); margin-top: 40px; margin-bottom:16px;">
-        🎙️ 2. Simulador Cynefin & Rebotadero Socrático en Tiempo Real
+      <!-- SEPARATED INTERACTIVE SIMULATOR -->
+      <h2 style="font-family: 'JetBrains Mono', monospace; font-size: 1.15rem; color: var(--accent-cyan); margin-bottom:16px;">
+        ⚙️ Simulador Separado: Diagnóstico CPS (Estrategia) vs. Entrenador Socrático (Táctica)
       </h2>
 
-      <div class="card" style="background: rgba(15, 23, 42, 0.95); border-color: #334155;">
-        <label style="display:block; margin-bottom: 8px; font-weight: 600; color: #cbd5e1;">A) Selecciona un escenario prediseñado de fricción:</label>
-        <select id="scenarioSelect" style="margin-bottom: 20px;">
-          <option value="1">1. Fricción por Cambio de Sistema: "El cliente quiere posponer la migración por miedo a perder control de sus datos"</option>
-          <option value="2">2. Resistencia de Equipo Técnico: "El equipo de TI insiste en desarrollar el software internamente con parches"</option>
-          <option value="3">3. Objeción de Precio Explícito vs. Implícito: "El cliente prefiere una solución barata de $5k MXN sin ver los costos ocultos"</option>
-        </select>
-
-        <label style="display:block; margin-bottom: 8px; font-weight: 600; color: #cbd5e1;">B) O escribe tu propia hipótesis / premisa a rebotar:</label>
-        <textarea id="customInput" rows="2" placeholder="Escribe aquí tu propia hipótesis para recibir el rebote socrático..." style="margin-bottom:16px;"></textarea>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
         
-        <button id="btnSpar" style="padding:14px 20px; font-size:1rem; width:100%; margin-bottom:20px;">
-          🚀 Diagnosticar Sistema & Rebotar Premisa
-        </button>
+        <!-- Left: CPS Diagnostic Engine -->
+        <div class="card" style="background:#0f172a; border-color:#6366f1;">
+          <h3 style="font-family:'JetBrains Mono',monospace; font-size:1.0rem; color:#818cf8; font-weight:800; margin-bottom:12px;">
+            🧩 MÓDULO A: DIAGNÓSTICO ESTRATÉGICO CPS
+          </h3>
+          <label style="display:block; font-size:0.82rem; color:#94a3b8; margin-bottom:6px;">Selecciona el síntoma del sistema:</label>
+          <select id="cpsSelect" style="margin-bottom:16px;">
+            <option value="1">1. Falsa Tracción: "Mándame la cotización por correo"</option>
+            <option value="2">2. Autoprotección de TI: "Nuestros desarrollos propios funcionan"</option>
+            <option value="3">3. Miopía de Precio: "El software de 40k es muy caro"</option>
+          </select>
 
-        <div id="resultBox" class="socratic-box">
-          <span id="domainBadge" style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #818cf8; font-weight: 800; background:#1e1b4b; padding:4px 10px; border-radius:6px; border:1px solid #4338ca;">
-            DIAGNOSTICO CYNEFIN: DOMINIO COMPLEJO
-          </span>
-          
-          <p id="attractorDesc" style="font-size: 0.95rem; margin: 12px 0; color: #f8fafc; line-height: 1.5;">
-            <strong>Atractor Activo:</strong> Miedo al riesgo de transición y pérdida de gobernanza de datos históricos.
-          </p>
-
-          <div style="background: #0f172a; border:1px solid #4338ca; padding: 16px; border-radius: 10px; margin-top: 12px;">
-            <strong style="color: #818cf8; font-size: 0.8rem; font-family: 'JetBrains Mono', monospace; display:block; margin-bottom:6px;">
-              ❓ PREGUNTA SOCRÁTICA DE FRICCIÓN (RESERVA COGNITIVA):
-            </strong>
-            <p id="socraticQuestion" style="font-style: italic; font-size: 0.95rem; margin: 0; color:#e0e7ff; line-height: 1.5;">
-              "¿Cuál es el costo diario real de no migrar hoy comparado con el riesgo controlado de un micro-experimento del 5% en paralelo?"
+          <div style="background:#0b0f19; border-left:4px solid #6366f1; padding:14px; border-radius:8px; margin-top:10px;">
+            <span id="cpsBadge" style="font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:#818cf8; font-weight:800;">DIAGNÓSTICO CPS: DOMINIO COMPLEJO</span>
+            <p id="cpsAttractor" style="font-size:0.85rem; color:#e2e8f0; margin-top:6px; line-height:1.4;">
+              <strong>Atractor Detectado:</strong> Evitación de compromiso por falta de consenso interno en la SOFOM.
             </p>
           </div>
         </div>
+
+        <!-- Right: Socratic Sparring Engine -->
+        <div class="card" style="background:#0f172a; border-color:#38bdf8;">
+          <h3 style="font-family:'JetBrains Mono',monospace; font-size:1.0rem; color:#38bdf8; font-weight:800; margin-bottom:12px;">
+            🎙️ MÓDULO B: ENTRENADOR DE SPARRING SOCRÁTICO
+          </h3>
+          <label style="display:block; font-size:0.82rem; color:#94a3b8; margin-bottom:6px;">Escribe una premisa del cliente a cuestionar:</label>
+          <input type="text" id="socInput" placeholder="Ej: 'No necesitamos migrar de Excel en 2 años'" style="margin-bottom:16px;">
+          
+          <button id="btnSoc" style="background:linear-gradient(135deg, #0284c7, #0369a1); font-size:0.85rem; padding:10px;">
+            ❓ Generar Pregunta Socrática de Fricción
+          </button>
+
+          <div style="background:#0b0f19; border-left:4px solid #38bdf8; padding:14px; border-radius:8px; margin-top:14px;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:#38bdf8; font-weight:800;">🗣️ PREGUNTA SOCRÁTICA SUGERIDA:</span>
+            <p id="socQuestion" style="font-size:0.85rem; color:#e0e7ff; font-style:italic; margin-top:6px; line-height:1.4;">
+              "¿Cuál es el costo diario real de no migrar hoy comparado con el riesgo controlado de un micro-experimento en paralelo?"
+            </p>
+          </div>
+        </div>
+
       </div>
     </main>
 
     <footer>
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
-        <span>CPS & Systems Thinking Mental Gym • Desplegado en GitHub Pages</span>
+        <span>Mental Gym • Separación Metodológica CPS vs. Socrático</span>
         <span style="font-family:'JetBrains Mono',monospace; color:#818cf8;">Antonio Gutiérrez • Publicado en Git</span>
       </div>
     </footer>
   </div>
 
   <script>
-    const scenarios = {
+    const cpsData = {
       "1": {
-        domain: "DIAGNOSTICO CYNEFIN: DOMINIO COMPLEJO",
-        attractor: "Miedo al riesgo de transición y pérdida de gobernanza de datos históricos.",
-        question: '"¿Cuál es el costo diario real de no migrar hoy comparado con el riesgo controlado de un micro-experimento del 5% en paralelo?"'
+        domain: "DIAGNÓSTICO CPS: RULE_01 (FALSE_TRACTION)",
+        attractor: "Evitación de compromiso / Falta de consenso en el comité de compras."
       },
       "2": {
-        domain: "DIAGNOSTICO CYNEFIN: RESISTENCIA POLÍTICA (FACTOR X)",
-        attractor: "Autoprotección del equipo técnico / Miedo a quedar obsoleto o perder control del código.",
-        question: '"¿Cómo liberamos al equipo de TI de mantener parches continuos para que puedan enfocarse en programar sus propios algoritmos de ventaja competitiva?"'
+        domain: "DIAGNÓSTICO CPS: RULE_02 (POLITICAL_TI_BLOCKER)",
+        attractor: "Autoprotección del equipo técnico / Miedo a quedar obsoleto o perder control del código."
       },
       "3": {
-        domain: "DIAGNOSTICO CYNEFIN: MIOPÍA DE COSTOS IMPLÍCITOS",
-        attractor: "Sesgo de coste hundido y comparación errónea con aplicaciones aisladas de $5k MXN.",
-        question: '"¿Cuánto dinero en efectivo pierde la organización al día por la fragmentación de datos y la falta de automatización nativa?"'
+        domain: "DIAGNÓSTICO CPS: RULE_03 (PRICE_MYOPIA)",
+        attractor: "Sesgo de coste hundido y comparación errónea con módulos aislados."
       }
     };
 
-    const scenarioSelect = document.getElementById('scenarioSelect');
-    const customInput = document.getElementById('customInput');
-    const btnSpar = document.getElementById('btnSpar');
-    const domainBadge = document.getElementById('domainBadge');
-    const attractorDesc = document.getElementById('attractorDesc');
-    const socraticQuestion = document.getElementById('socraticQuestion');
+    const cpsSelect = document.getElementById('cpsSelect');
+    const cpsBadge = document.getElementById('cpsBadge');
+    const cpsAttractor = document.getElementById('cpsAttractor');
 
-    scenarioSelect.addEventListener('change', (e) => {
-      const data = scenarios[e.target.value] || scenarios["1"];
-      domainBadge.textContent = data.domain;
-      attractorDesc.innerHTML = `<strong>Atractor Activo:</strong> ${data.attractor}`;
-      socraticQuestion.textContent = data.question;
-      customInput.value = '';
+    cpsSelect.addEventListener('change', (e) => {
+      const data = cpsData[e.target.value] || cpsData["1"];
+      cpsBadge.textContent = data.domain;
+      cpsAttractor.innerHTML = `<strong>Atractor Detectado:</strong> ${data.attractor}`;
     });
 
-    btnSpar.addEventListener('click', () => {
-      const text = customInput.value.trim();
+    const socInput = document.getElementById('socInput');
+    const btnSoc = document.getElementById('btnSoc');
+    const socQuestion = document.getElementById('socQuestion');
+
+    btnSoc.addEventListener('click', () => {
+      const text = socInput.value.trim();
       if (text) {
-        domainBadge.textContent = "DIAGNOSTICO CYNEFIN: ANÁLISIS PERSONALIZADO";
-        attractorDesc.innerHTML = `<strong>Atractor Activo:</strong> Sesgo de confirmación sobre la premisa: "${text.substring(0, 50)}..."`;
-        socraticQuestion.textContent = `"Si la premisa sobre '${text}' fuera 100% falsa, ¿cuál es la causa raíz alternativa que estás ignorando por sesgo?"`;
+        socQuestion.textContent = `"Si la premisa sobre '${text}' fuera 100% falsa, ¿cuál es la alternativa más lógica que estás ignorando por sesgo?"`;
+      } else {
+        socQuestion.textContent = '"¿Cuál es el costo diario real de no actuar hoy comparado con el riesgo controlado de un micro-experimento del 5% en paralelo?"';
       }
     });
   </script>
